@@ -1,4 +1,5 @@
-#### :Q What would be the output?
+`#question`
+#### What would be the output?
 ```java
 var s1 = "hello";
 var s2 = new String("hello");
@@ -13,8 +14,9 @@ System.out.println(s3==s2);
 System.out.println(s3=="hello");
 System.out.println(s3==s4);
 ```
-#### :A
+`#answer`
 ```java
+// output
 System.out.println(s1=="hello");   //true
 System.out.println(s1==s2);        //false
 System.out.println(s2=="hello");   //false
@@ -26,6 +28,7 @@ System.out.println(s3==s4);        //false
 ##
 
 ---
+
 #### :Q Is this correct interface method declaration?
 ```java
 interface Access {
@@ -37,6 +40,7 @@ Abstract method cannot be `final`.
 ##
 
 ---
+
 #### :Q Is this correct interface method declaration?
 ```java
 interface Access {
@@ -48,6 +52,7 @@ Abstract method cannot be `private`.
 ##
 
 ---
+
 #### :Q Is this correct interface method declaration?
 ```java
 interface Access {
@@ -59,6 +64,7 @@ Abstract method cannot be `protected`.
 ##
 
 ---
+
 #### :Q Is this correct `abstract` method declaration?
 ```java
 abstract class Access {
@@ -71,6 +77,7 @@ Static method belongs to class and must be implemented.
 ##
 
 ---
+
 ```
 #### :Q Will this compile?
 ```java
@@ -81,6 +88,7 @@ Yes. Underscores are allowed between any two digits in a numeric literal, but no
 ##
 
 ---
+
 #### :Q Which primitive type from `int, short, double` could be used to make it output `0`?
 ```java
 public static void main(String[] args) {
@@ -94,6 +102,7 @@ With initialization the correct types would be `int` and `short`.
 ##
 
 ---
+
 #### :Q What is the output?
 ```java
 public class Parent {
@@ -125,6 +134,7 @@ Only one public class allowed per `.java` file.
 ##
 
 ---
+
 #### :Q What is the output?
 ```java
 public class Parent {
@@ -155,6 +165,7 @@ method of Parent
 ##
 
 ---
+
 #### :Q What is the output?
 ```java
 class TestClass implements T1, T2 {
@@ -185,6 +196,7 @@ System.out.println(((T1) a).VALUE);
 ##
 
 ---
+
 #### :Q Will this compile?
 ```java
 short s = 10;
@@ -198,12 +210,14 @@ No. Explicit cast is required for both scenarios.
 ##
 
 ---
+
 #### :Q What access modifiers could have java constructor?
 #### :A
 Constructor can use any access modifier (`public`, `protected`, `package-private`, `private`).
 ##
 
 ---
+
 #### :Q Will this compile?
 ```java
 public class User {
@@ -217,6 +231,7 @@ It's allowed to have method with the same name as a class name, but it's confusi
 ##
 
 ---
+
 #### :Q What's wrong with this code?
 ```java
 public class User extends AbstractUser {
@@ -229,6 +244,38 @@ public class User extends AbstractUser {
 ```
 #### :A
 The call to `super()` or `this()` has to be the very first statement in the constructor.
+##
+
+---
+
+#### :Q What is the outcome?
+```java
+interface House {
+    default String getAddress() {
+        return "101 Main Str";
+    }
+}
+interface Bungalow {
+    default String getAddress() {
+        return "101 Smart Str";
+    }
+}
+class MyHouse implements Bungalow, House { }
+public class TestRun {
+    public static void main(String[] args) {
+        House house = new MyHouse();             // 1
+        System.out.println(house.getAddress());  // 2
+    }
+}
+```
+**A**. Code for interface `House` will cause compilation to fail.  
+**B**. Code for interface `Bungalow` will cause compilation to fail.  
+**C**. Code for class `MyHouse` will cause compilation to fail.  
+**D**. Line at `// 1` will cause compilation to fail.  
+**E**. Line at `// 2` will cause compilation to fail.  
+**F**. The code will compile successfully.  
+#### :A
+**C** Method `getAddress()` must be implemented as both interfaces have the same default methods.
 ##
 
 ---
