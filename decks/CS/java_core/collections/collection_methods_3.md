@@ -7,18 +7,19 @@
         clear(): void
         contains(Object o): boolean
         containsAll(Collection<?> c): boolean
+        isEmpty(): boolean
 default parallelStream(): Stream<E>
         remove(Object o): boolean
         removeAll(Collection<?> c): boolean
+default removeIf(Predicate<? super E> filter): boolean
         retainAll(Collection<?> c): boolean
         size(): int
-default stream(): Stream<E>
-        toArray(): Object[]
+default toArray(IntFunction<T[]> generator): T[]
         toArray(T[] a): T[]
 ```
 `#answer`
 ```java
-        isEmpty(): boolean
-default removeIf(Predicate<? super E> filter): boolean
+default stream(): Stream<E>
+        toArray(): Object[]
 ```
 [java 17 Docs. Collection\<E\>](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Collection.html)
